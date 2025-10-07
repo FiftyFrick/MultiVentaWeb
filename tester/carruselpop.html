@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrusel Manual</title>
+  <link rel="stylesheet" href="estiloCarrusel.css">
+  <link rel="stylesheet" href="stylepopup.css">
+</head>
+<body>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>
+    
+    <div class="carousel-wrapper">
+      <div class="carousel" id="carousel">
+        <div>
+          <button class="btn-popup" onclick="abrirPopup('img1.jpg', 'descripcion 1')">
+            <img src="img1.jpg" alt="Imagen 1">
+          </button>
+          <p>descripcion 1</p>
+        </div>
+        <div>
+          <button class="btn-popup" onclick="abrirPopup('img2.jpg', 'descripcion 2')">
+            <img src="img2.jpg" alt="Imagen 2">
+          </button>
+          <p>descripcion 2</p>
+        </div>
+        <div>
+          <button class="btn-popup" onclick="abrirPopup('img3.jpg', 'descripcion 3')">
+            <img src="img3.jpg" alt="Imagen 3">
+          </button>
+          <p>descripcion 3</p>
+        </div>
+        <div>
+          <button class="btn-popup" onclick="abrirPopup('img4.jpg', 'descripcion 4')">
+            <img src="img4.jpg" alt="Imagen 4">
+          </button>
+          <p>descripcion 4</p>
+        </div>
+      </div>
+    </div>
+    
+    <button class="carousel-btn right" onclick="moveCarousel(1)">❯</button>
+  </div>
+  
+  <!-- SOLO UN POPUP CONSERVANDO TU FORMATO -->
+  <div id="popup" class="popup">
+    <div class="popup-contenido">
+      <img id="popup-img" src="" alt="Imagen Pop-up">
+      <p id="popup-desc"></p>
+      <button class="btn-cerrar" onclick="cerrarPopup()">Cerrar</button>
+    </div>
+  </div>
+  
+
+  <script>
+    function abrirPopup(imagen, descripcion) {
+      document.getElementById('popup-img').src = imagen;
+      document.getElementById('popup-desc').innerText = descripcion;
+      document.getElementById('popup').style.display = 'flex';
+    }
+    
+    function cerrarPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+    </script>
+      
+
+
+
+<script src="carrusel.js"></script>
+</body>
+</html>

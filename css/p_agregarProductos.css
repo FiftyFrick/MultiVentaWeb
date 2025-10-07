@@ -1,0 +1,56 @@
+/* === MAIN AGREGAR PRODUCTOS === */
+main.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Columna de la imagen */
+main.content .colum {
+  flex: 1;
+  text-align: center;
+}
+
+main.content .colum img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #444;
+  transition: transform 0.3s;
+}
+
+main.content .colum img:hover {
+  transform: scale(1.05);
+}
+
+/* Texto descriptivo */
+main.content .descripcion {
+  flex: 2;
+  background: #2c2c2c;
+  padding: 20px;
+  border-radius: 10px;
+  color: #f5f5f5;
+  line-height: 1.6;
+  font-size: 15px;
+  border: 1px solid #444;
+}
+
+/* Responsivo (móvil) */
+@media (max-width: 768px) {
+  main.content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main.content .descripcion {
+    margin-top: 20px;
+  }
+}

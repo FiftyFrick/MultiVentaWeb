@@ -1,0 +1,51 @@
+
+
+/* Caja lateral */
+.caja {
+  position: fixed;
+  top: 20px;
+  left: -220px; /* oculta el 90% */
+  width: 250px;
+  height: 150px;
+  background: #2c2c2c;
+  border-right: 4px solid #0078ff;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+  display: flex;
+  transition: left 0.5s ease;
+}
+
+/* Contenido dentro de la caja */
+.contenido {
+  flex: 1;
+  padding: 15px;
+}
+
+/* Botón visible al costado */
+.boton {
+  width: 30px;
+  background: #0078ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Botón cerrar */
+.cerrar {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+  color: #aaa;
+}
+.cerrar:hover {
+  color: white;
+}
+
+/* Estado abierto */
+.caja.activo {
+  left: 20px; /* entra a la vista */
+}

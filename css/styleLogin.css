@@ -1,0 +1,82 @@
+.contenido{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+}
+main{
+  padding: 10px;
+  width: 70%;
+}
+
+/*------------------------------------------------*/
+/* Login */
+.login-container {
+  background: rgba(31, 31, 31, 0.9); /* fondo oscuro semitransparente */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #00ffcc;
+  font-size: 1.8em;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form label {
+  text-align: left;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #222;
+  color: #fff;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #00ffcc;
+}
+
+.login-form button {
+  margin-top: 10px;
+}
+
+.registro {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.registro a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.registro a:hover {
+  text-decoration: underline;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

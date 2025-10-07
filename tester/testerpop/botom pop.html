@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="mostrarPopup()">Mostrar Pop-up</button>
+
+<div id="popup" style="display: none; position: fixed; top: 30%; left: 30%; background: #1f1f1f; color: white; padding: 20px; border-radius: 10px;">
+  <p>¡Este es un pop-up!</p>
+  <button onclick="cerrarPopup()">Cerrar</button>
+</div>
+
+<script>
+function mostrarPopup() {
+  document.getElementById('popup').style.display = 'block';
+}
+
+function cerrarPopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
+
+    
+</body>
+</html>

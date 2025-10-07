@@ -1,0 +1,52 @@
+/* === FORMULARIO DE NOTICIAS === */
+main form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* separa los elementos */
+  max-width: 500px;
+  margin: 0 auto; /* centra el formulario */
+  padding: 20px;
+  background: #1e1e1e; /* fondo oscuro */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Etiquetas */
+main form label {
+  font-weight: bold;
+  color: #f0f0f0;
+  margin-bottom: 4px;
+}
+
+/* Inputs */
+main form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #2c2c2c;
+  color: #f5f5f5;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+main form input[type="text"]:focus {
+  border-color: #4CAF50; /* verde */
+  background: #333;
+}
+
+/* Botón */
+main form button {
+  padding: 10px;
+  background: #4CAF50;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main form button:hover {
+  background: #45a049;
+}

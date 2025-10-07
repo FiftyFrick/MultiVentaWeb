@@ -1,0 +1,122 @@
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  margin: 0 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+
+}
+
+.carousel-btn { /* botones de anterior sigiente*/
+  position: absolute;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 15px;
+  font-size: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #101010;
+  transition: background 0.3s;
+  z-index: 2;
+
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 255, 170, 1);
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.1); /* agranda 10% */
+}
+
+
+/* estilo del pop up*/
+
+/* Botón que abre el pop-up */
+.btn-popup {
+    background: none;   /* sin fondo */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+.btn-popup:hover {
+      background: none;   /* sin fondo */
+}
+  
+  /* hace que el FONDO quede oscuro transparente del pop-up */
+  .popup {
+    display: none; /* Oculto al principio */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  /* Contenedor del contenido del pop-up abierto*/
+  .popup-contenido {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+  .popup-contenido img {
+  width: 400px;
+  height: 300px;
+}
+
+  
+  /* Botón para cerrar */
+  .btn-cerrar {
+    margin-top: 20px;
+    background-color: #00ffcc;
+    color: #1f1f1f;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-cerrar:hover {
+    background-color: #1bdcb6;
+  }
+  

@@ -1,0 +1,151 @@
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+/*----------------------------------------*/
+
+/* Layout carrito */
+.cart-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 40px auto;
+    gap: 40px;
+    color: #333;
+}
+
+/* Carrito izquierda */
+.cart-left {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.cart-left h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.cart-item img {
+    width: 120px;
+    border-radius: 6px;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info p {
+    margin: 5px 0;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-actions button {
+    color: #000;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.item-actions input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.item-total {
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+}
+
+.remove {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: gray;
+}
+
+.extras {
+    margin-top: 15px;
+}
+
+.extras a {
+    display: block;
+    margin: 5px 0;
+    color: #e76a3b;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* Resumen derecha */
+.cart-right {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.cart-right h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.checkout {
+    background: black;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    margin-top: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkout:hover {
+    background: #333;
+}
+
+.secure {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+}

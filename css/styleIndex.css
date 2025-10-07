@@ -1,0 +1,176 @@
+/* Estilos por defecto (modo claro) */
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  margin: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cuando esté en modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+
+/*------------------------------------------------------------------*/
+
+.menu {
+  font-size: 1.4em;
+  justify-items: end;
+  background-color: #1f1f1f;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+  color: #00ffcc;
+}
+
+button {
+  background-color: #333; /* Color de fondo oscuro */
+  color: #fff; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #555; /* Color más claro al pasar el mouse */
+  transform: scale(1.05); /* Hace que el botón crezca un poquito */
+
+}
+
+
+/* -----------------   header     ------------  */
+
+.bienvenidos{
+  margin-left: 2%;
+}
+
+/* -----------------   mensaje Emergente     ------------  */
+
+.caja {
+  position: fixed;
+  top: 20px;
+  left: -230px; /* empieza oculta fuera de pantalla */
+  width: 250px;
+  height: 120px;
+  background: #2c2c2c;
+  border-right: 4px solid #0078ff;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  transition: left 0.4s ease;
+  z-index: 9999; /* 🔥 asegura que quede encima de todo */
+}
+
+/* Contenido dentro de la caja */
+.contenido {
+  color: white;
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+/* Botón visible al costado */
+.boton {
+  width: 30px;
+  height: 100%;
+  background: #0078ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  font-size: 20px;
+}
+
+/* Botón cerrar */
+.cerrar {
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+.cerrar:hover {
+  color: white;
+}
+
+/* Estado abierto */
+.caja.activo {
+  left: 0; /* entra totalmente visible */
+}
+
+/*------------------------------------------------------------------*/
+
+.contentMain{
+  display: flex;
+  flex-direction: row;  
+
+}
+main{
+  padding: 10px;
+  width: 100%;
+}
+
+/*
+aside{
+  background-color: #5f5e5e3b;
+  padding: 10px;
+  width: 25%;
+  height: auto;
+  border-radius: 20px;
+}
+*/
+
+
+/*------------------------------------------------------------------*/
+
+.footer {
+  font-size: 1.2em;
+  text-align: center;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 15px 20px;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.6);
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.footer p:hover {
+  color: #00ffcc;
+  transition: color 0.3s;
+}

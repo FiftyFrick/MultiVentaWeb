@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylepopup.css">
+</head>
+<body>
+
+
+    <button class="btn-popup" onclick="abrirPopup()"><img src="img1.jpg" alt="Imagen 1">
+    </button>
+
+    <div id="popup" class="popup">
+      <div class="popup-contenido">
+        <img src="img1.jpg" alt="Imagen 1">
+        <p>descripcion</p>
+        <button class="btn-cerrar" onclick="cerrarPopup()">Cerrar</button>
+      </div>
+    </div>
+    
+<script>
+function abrirPopup() {
+  document.getElementById('popup').style.display = 'flex';
+}
+
+function cerrarPopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+</script>
+
+    
+</body>
+</html>
