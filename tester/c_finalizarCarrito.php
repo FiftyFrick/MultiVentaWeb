@@ -19,7 +19,7 @@
             <?php
                 session_start();
 
-                echo "<h1>Finalizar Compra</h1>";
+                echo "<h1>Seguir Compra</h1>";
 
                 if (empty($_SESSION['carrito'])) {
                     echo "<p>No hay productos en el carrito.</p>";

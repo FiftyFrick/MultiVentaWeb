@@ -21,7 +21,7 @@
   <main>
     <section class="login-container">
       <h2>Iniciar Sesión</h2>
-      <form action="login.php" method="POST" class="login-form">
+      <form action="index.php" method="POST" class="login-form">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
 

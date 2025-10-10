@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang='es'>
 <head>
-<!--
-<script>
-  // Detectar el modo antes de que cargue el body
-  if (localStorage.getItem('modo') === 'oscuro') {
-    document.documentElement.classList.add('dark-mode');
-  }
-</script>
--->
+
   <meta charset='UTF-8'>
   <title>MultiVenta</title>
   <link rel='stylesheet' href='css/styleIndex.css'>
@@ -17,20 +10,18 @@
 </head>
 <body>
   <?php include("menu.php"); ?>
-<!--  <?php include("menuAdmin.php"); ?> -->
-  
+
   <header>
     <div class="cabecera">
       <div class="bienvenidos">
       <h1>Bienvenido a MultiVenta</h1>
       <p>Tu tienda multipropósito de confianza.</p>
-      <!--<button class="btn" onclick="mostrarMensaje()">Notificaciones</button> -->
 
       <div id="caja" class="caja">
         <div class="contenido">
           <span class="cerrar" onclick="toggleCaja()">&times;</span>
           <p><strong>¡Bienvenido!</strong><br>
-          Este es un panel lateral que se despliega.
+          Revisa nuestros Ultimos Productos agregados!!!.
           </p>
         </div>
 
@@ -56,10 +47,7 @@
       <?php include("in_tuUpgrade.php"); ?>
 
     </main>
-<!--
-    <aside>
-    </aside>
--->
+
   </div>
 
 

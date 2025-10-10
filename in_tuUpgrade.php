@@ -1,36 +1,36 @@
 <div class="carrusel">
-  <h2>Últimos Ingresos</h2>
+  <h2>Tu Upgrade</h2>
   <div class="carousel-container">
     <button class="carousel-btn left" onclick="moveCarousel(this, -1)">❮</button>
 
     <div class="carousel-wrapper">
       <div class="carousel">
         <div>
-          <button class="btn-popup" onclick="abrirPopup('img/img1.jpg', 'Descripción 1')">
-            <img src="img/img1.jpg" alt="Imagen 1">
+          <button class="btn-popup" onclick="abrirPopup('img/kitupgrade.jpeg', 'kit de actualizacion rayzen 7')">
+            <img src="img/kitupgrade.jpeg" alt="Imagen 1">
           </button>
-          <p>Descripción 1</p>
+          <p>kit Rayzen 7</p>
         </div>
 
         <div>
-          <button class="btn-popup" onclick="abrirPopup('img/img2.jpg', 'Descripción 2')">
-            <img src="img/img2.jpg" alt="Imagen 2">
+          <button class="btn-popup" onclick="abrirPopup('img/memddr4.jpg', 'memoria ddr4 16GB')">
+            <img src="img/memddr4.jpg" alt="Imagen 2">
           </button>
-          <p>Descripción 2</p>
+          <p>Memoria ddr4 16GB</p>
         </div>
 
         <div>
-          <button class="btn-popup" onclick="abrirPopup('img/img3.jpg', 'Descripción 3')">
-            <img src="img/img3.jpg" alt="Imagen 3">
+          <button class="btn-popup" onclick="abrirPopup('img/rx6600.jpeg', 'rx6600')">
+            <img src="img/rx6600.jpeg" alt="Imagen 3">
           </button>
-          <p>Descripción 3</p>
+          <p>rx6600</p>
         </div>
 
         <div>
-          <button class="btn-popup" onclick="abrirPopup('img/img4.jpg', 'Descripción 4')">
-            <img src="img/img4.jpg" alt="Imagen 4">
+          <button class="btn-popup" onclick="abrirPopup('img/inteli7.jpg', 'intel i7')">
+            <img src="img/inteli7.jpg" alt="Imagen 4">
           </button>
-          <p>Descripción 4</p>
+          <p>intel i7</p>
         </div>
       </div>
     </div>
