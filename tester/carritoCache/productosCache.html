@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Productos</title>
+  <link rel="stylesheet" href="estiloEjercicios.css">
+</head>
+<body>
+  <h1>Productos disponibles</h1>
+
+  <div class="producto" data-id="1" data-nombre="Auriculares" data-precio="15000">
+    <h3>Auriculares</h3>
+    <p>$15.000</p>
+    <button class="agregar">Agregar al carrito</button>
+  </div>
+
+  <div class="producto" data-id="2" data-nombre="Mouse Gamer" data-precio="12000">
+    <h3>Mouse Gamer</h3>
+    <p>$12.000</p>
+    <button class="agregar">Agregar al carrito</button>
+  </div>
+
+  <div class="producto" data-id="3" data-nombre="Teclado Mecánico" data-precio="18000">
+    <h3>Teclado Mecánico</h3>
+    <p>$18.000</p>
+    <button class="agregar">Agregar al carrito</button>
+  </div>
+
+  <p><a href="tuCarrito.html">Ver carrito</a></p>
+
+  <script>
+    function obtenerCarrito() {
+      return JSON.parse(localStorage.getItem('carrito')) || [];
+    }
+
+    function guardarCarrito(carrito) {
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+
+    document.querySelectorAll('.agregar').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const producto = e.target.closest('.producto');
+        const id = producto.dataset.id;
+        const nombre = producto.dataset.nombre;
+        const precio = Number(producto.dataset.precio);
+
+        let carrito = obtenerCarrito();
+        let existente = carrito.find(p => p.id === id);
+
+        if (existente) {
+          existente.cantidad++;
+        } else {
+          carrito.push({ id, nombre, precio, cantidad: 1 });
+        }
+
+        guardarCarrito(carrito);
+        alert(`${nombre} agregado al carrito`);
+      });
+    });
+  </script>
+</body>
+</html>
