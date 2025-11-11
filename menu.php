@@ -1,39 +1,18 @@
 
+  
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">MV</div>
+      <div class="brand-name">MultiVenta</div>
+    </div>
+    <nav class="nav">
+      <a href="index.php" class="nav-link">Inicio</a>
+      <a href="productos.php" class="nav-link">Catálogo</a>
+      <a href="carrito.php" class="nav-link">Carrito</a>
+      <a href="quienesSomos.php" class="nav-link">Quienes Somos</a>
+    </nav>
+    <div class="user-area">
+      <a href="admin.php"> <button class="btn ghost" > Iniciar sesión </button> </a>
+    </div>
 
-<nav class="menu">
-  <ul>
-    <li><a href="index.php">Inicio</a></li>
-    <li><a href="productos.php">Productos</a></li>
-    <li><a href="carrito.php">Carrito</a></li>
-    <li><a href="quienesSomos.php">Quienes Somos</a></li>
-    <li><a href="admin.php">Administración</a></li>
-    <!--<button onclick="toggleMode()">Cambiar modo</button> -->
-
-  </ul>
-</nav>
-
-
-
-
-<!--
-<script>
-function toggleMode() {
-  document.body.classList.toggle('dark-mode');
-
-  // Opcional: guardar preferencia en el navegador
-  if (document.body.classList.contains('dark-mode')) {
-    localStorage.setItem('modo', 'oscuro');
-  } else {
-    localStorage.setItem('modo', 'claro');
-  }
-}
-
-// Al cargar la página, recordar el modo anterior
-window.onload = function() {
-  if (localStorage.getItem('modo') === 'oscuro') {
-    document.body.classList.add('dark-mode');
-  }
-};
-</script>
-
--->
+  </header>

@@ -1,64 +1,140 @@
-header{
+/* ------------ VARIABLES (usa los que tengas en tu theme) ------------ */
+/* Ejemplo:
+:root {
+  --panel: #1e1e1e;
+  --text: #ffffff;
+  --muted: #bbbbbb;
+  --accent: #00ffcc;
+}
+*/
+
+
+/* ------------ HEADER Y FILTROS ------------ */
+
+header {
   width: 100%;
 }
 
-.block-buscador{
+.cabecera {
   margin-left: 2%;
-  width: 45%;
-  background-color: #8b8b8b;
-  justify-content: left;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
-/* --------------    contenido de productos    --------------*/
-
-.main{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-}
-.content{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;}
-.colum{
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    text-align: center;
+.filter-bar {
+  width: 80%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
 }
 
-.colum div img{
-    width: 250px;
-    height: 300px;
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  color: var(--muted);
+}
+
+.filter-group input,
+.filter-group select {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 16px;
+  margin-top: 6px;
 }
 
 
-/* --------------    navegacion de paginas    --------------*/
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin: 30px 0;
-    font-size: 1.2em;
-    background-color: #1f1f1f;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  }
-  
-  .pagination a {
-    color: #ffffff;
-    padding: 8px 12px;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .pagination a:hover {
-    background-color: #00ffcc;
-    color: #1f1f1f;
-  }
-  
+/* ------------ GRID DE PRODUCTOS ------------ */
+
+.cards-grid.catalog {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  justify-content: center;   /* Centra las columnas */
+  align-items: center;
+}
+
+
+/* ------------ TARJETA DE PRODUCTO ------------ */
+
+.product-card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  transition: transform .3s ease;
+  margin: 0 auto;        /* Centra la tarjeta */
+  max-width: 600px;      /* Controla el tamaño máximo */
+  width: 100%;           /* Ocupa ancho disponible sin deformarse */
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen */
+.thumb.large img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Info del producto */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.3rem;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.price {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.btn.small {
+  width: fit-content;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: #1f1f1f;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn.small:hover {
+  background-color: #00cfa5;
+}
+
+
+/* ------------ FOOTER ------------ */
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: var(--muted);
+}

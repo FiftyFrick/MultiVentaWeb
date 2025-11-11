@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styleIndex.css">
+    <link rel="stylesheet" href="css/styleIndex.css">
     <link rel="stylesheet" href="css/styleCarrito.css">
 
 </head>
 <body>
     <?php include("menu.php"); ?>
+    <header>
+
+    </header>
+    <br>
     <div class="contenido">       
         <main class="content">
 <!--
@@ -80,29 +83,8 @@
                     <span>Total</span>
                     <span>$188,000.00</span>
                 </div>
-                <?php
-                $telefono = "5491122334455"; // ← poné tu número acá
-                $mensaje = "Hola! Quiero finalizar esta compra:%0A%0A";
-
-                if (!empty($_SESSION['carrito'])) {
-                    foreach ($_SESSION['carrito'] as $item) {
-                        $nombre = urlencode($item['nombre']);
-                        $cantidad = urlencode($item['cantidad']);
-                        $precio = urlencode($item['precio']);
-                        $mensaje .= "- $nombre x$cantidad ($$precio c/u)%0A";
-                    }
-                }
-
-                $mensaje .= "%0ATotal: $" . urlencode($total); // Asegúrate de tener $total calculado
-                $linkWhatsapp = "https://wa.me/$telefono?text=$mensaje";
-                ?>
-
-                <a href="<?php echo $linkWhatsapp; ?>" target="_blank" class="btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                Seguir Compra
-                </a>
-
-                                
+                <a href="https://web.whatsapp.com/"><button class="checkout">Seguir Compra</button></a>
+                
             </div>
         </section>
 

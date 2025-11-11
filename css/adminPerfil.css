@@ -1,70 +1,205 @@
 .perfil-container {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 50px;
+  padding-bottom: 60px;
 }
 
 .perfil-card {
-  background: #1e1e1e;
-  padding: 25px;
-  border-radius: 12px;
+  background: var(--panel);
+  width: 700px; /* ← Más ancho */
+  padding: 40px;
+  border-radius: var(--radius);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  display: flex;                /* ACTIVAMOS 2 COLUMNAS */
+  gap: 40px;
+  align-items: center;
+}
+
+/* Columnas */
+.perfil-col {
+  flex: 1;
+}
+
+/* Avatar e info */
+.izq {
   text-align: center;
-  color: #f5f5f5;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  width: 320px;
 }
 
 .perfil-avatar {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  border: 3px solid #4CAF50;
-  margin-bottom: 15px;
+  border: 4px solid var(--accent);
+  object-fit: cover;
+  margin-bottom: 16px;
 }
 
 .rol {
   font-weight: bold;
-  color: #4CAF50;
+  color: var(--accent);
+  font-size: 15px;
+  margin-bottom: 6px;
 }
 
 .email {
   font-size: 14px;
-  color: #aaa;
-  margin-bottom: 10px;
+  color: var(--muted);
+  margin-bottom: 14px;
 }
 
+.perfil-col hr {
+  margin-top: 18px;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Detalles */
 .perfil-detalles {
-  text-align: left;
-  margin-top: 15px;
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 26px;
 }
 
+/* Botones */
 .perfil-acciones {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .perfil-acciones button {
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--accent), #00b44a);
+  color: #05200f;
+  transition: 0.25s;
+}
+
+.perfil-acciones button:hover {
+  transform: scale(1.04);
+}
+
+.logout {
+  background: #d93d3d !important;
+  color: #fff !important;
+}
+
+
+
+
+
+/* Fondo oscuro del modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Caja del modal */
+.modal-content {
+  background: var(--panel);
+  padding: 30px;
+  width: 420px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: aparecerModal 0.25s ease-out;
+}
+
+/* Título */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Inputs */
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: #0e2e41;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.modal-content input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.modal-content input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: #0e2e41;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.modal-content input[type="password"]:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+
+/* Botón guardar */
+.modal-content .guardar {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: none;
+  background: linear-gradient(180deg, var(--accent), #00b44a);
+  color: #05200f;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.perfil-acciones button:hover {
-  opacity: 0.9;
+.modal-content .guardar:hover {
+  filter: brightness(1.12);
+  transform: scale(1.03);
 }
 
-.perfil-acciones .logout {
-  background: #e74c3c;
-  color: white;
+
+
+/* Botón cerrar (X) */
+.cerrar {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 26px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.perfil-acciones button:not(.logout) {
-  background: #4CAF50;
-  color: white;
+.cerrar:hover {
+  color: var(--accent);
 }
+
+/* Animación suave */
+@keyframes aparecerModal {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+

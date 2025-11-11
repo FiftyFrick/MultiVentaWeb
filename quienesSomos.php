@@ -4,7 +4,7 @@
 
   <meta charset='UTF-8'>
   <title>MultiVenta</title>
-  <link rel='stylesheet' href='css/styleIndex.css'>
+  <link rel='stylesheet' href='styleIndex.css'>
   <link rel='stylesheet' href='css/quienesSomos.css'>
 
 </head>

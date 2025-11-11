@@ -1,82 +1,91 @@
-.contenido{
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  justify-content: center;
-}
-main{
-  padding: 10px;
-  width: 70%;
-}
-
-/*------------------------------------------------*/
-/* Login */
+/* Contenedor general del formulario */
 .login-container {
-  background: rgba(31, 31, 31, 0.9); /* fondo oscuro semitransparente */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  max-width: 400px;
-  margin: auto;
+  background: var(--panel); /* mismo panel que usas en el admin */
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  max-width: 420px;
+  margin: 40px auto;
   text-align: center;
-  animation: fadeIn 0.6s ease-in-out;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
+/* Título */
 .login-container h2 {
-  margin-bottom: 20px;
-  color: #00ffcc;
-  font-size: 1.8em;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 22px;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
+/* Etiquetas */
 .login-form label {
+  display: block;
   text-align: left;
-  font-weight: bold;
-  color: #ddd;
+  margin: 10px 0 6px;
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.login-form input {
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 8px;
-  background-color: #222;
-  color: #fff;
-  font-size: 1em;
-  transition: border-color 0.3s;
+/* Inputs */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0e2e41;
+  color: var(--text);
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: 0.20s;
 }
 
+/* Focus */
 .login-form input:focus {
   outline: none;
-  border-color: #00ffcc;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(0,255,120,0.4);
 }
 
+/* Botón */
 .login-form button {
-  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(180deg,var(--accent), #00b44a);
+  color: #05200f;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.18s;
 }
 
+.login-form button:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* En caso de agregar registro */
 .registro {
-  margin-top: 15px;
-  font-size: 0.9em;
-  color: #aaa;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--muted);
 }
-
 .registro a {
-  color: #00ffcc;
+  color: var(--accent);
   text-decoration: none;
-  font-weight: bold;
 }
-
 .registro a:hover {
   text-decoration: underline;
 }
 
-/* Animación de entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Centro el main para mantener la estructura */
+.contenido main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
 }

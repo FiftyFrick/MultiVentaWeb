@@ -1,151 +1,176 @@
-main{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  flex: 1; /* Empuja el footer abajo */
+
+}
+
 
 /*----------------------------------------*/
 
 /* Layout carrito */
 .cart-container {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: 40px auto;
-    gap: 40px;
-    color: #333;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 40px auto;
+  gap: 40px;
+  color: var(--text);
 }
 
 /* Carrito izquierda */
-.cart-left {
-    flex: 2;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.cart-left,
+.cart-right {
+  background: var(--panel);
+  padding: 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
-.cart-left h2 {
-    margin-bottom: 20px;
-    font-size: 18px;
+.cart-left { flex: 2; }
+.cart-right { flex: 1; }
+
+.cart-left h2,
+.cart-right h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
+/* Item del carrito */
 .cart-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
+  display: grid;
+  grid-template-columns: 120px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .cart-item img {
-    width: 120px;
-    border-radius: 6px;
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-.item-info {
-    flex: 1;
-}
+.item-info p { margin: 4px 0; }
+.price { font-weight: 600; color: var(--accent); }
 
-.item-info p {
-    margin: 5px 0;
-}
-
-.price {
-    font-weight: bold;
-}
-
+/* Botones + - cantidad */
 .item-actions {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .item-actions button {
-    color: #000;
-    padding: 4px 8px;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0e2e41;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.item-actions button:hover {
+  background: var(--accent);
+  color: #05200f;
 }
 
 .item-actions input {
-    width: 40px;
-    text-align: center;
-    border: 1px solid #ddd;
+  width: 42px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0e2e41;
+  color: var(--text);
 }
 
+/* Total por item */
 .item-total {
-    font-weight: bold;
-    min-width: 100px;
-    text-align: right;
+  font-weight: bold;
+  text-align: right;
 }
 
+/* Botón eliminar */
 .remove {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: gray;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: 0.2s;
+}
+.remove:hover {
+  color: #ff4d4d;
 }
 
-.extras {
-    margin-top: 15px;
-}
-
-.extras a {
-    display: block;
-    margin: 5px 0;
-    color: #e76a3b;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-/* Resumen derecha */
-.cart-right {
-    flex: 1;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.cart-right h2 {
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
+/* Resumen del pedido */
 .summary-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
 }
-
 .summary-row.total {
-    font-weight: bold;
-    font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
 }
 
+/* Botón checkout */
 .checkout {
-    background: black;
-    color: white;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    margin-top: 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+  background: linear-gradient(180deg,var(--accent), #00b44a);
+  color: #05200f;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 0.18s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
-
 .checkout:hover {
-    background: #333;
+  transform: translateY(-2px) scale(1.02);
 }
 
-.secure {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 13px;
-    color: #555;
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;                         /* Separación entre icono y texto */
+  background: #25D366;              /* Verde WhatsApp */
+  color: #05200f;
+  padding: 14px;
+  width: 100%;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-whatsapp:hover {
+  background: #1eb652;              /* Verde más oscuro */
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel='stylesheet' href='styleIndex.css'>
+    <title>Document</title>
+    <link rel='stylesheet' href='css/styleIndex.css'>
     <link rel='stylesheet' href='css/styleLogin.css'>
 
 
@@ -15,12 +15,13 @@
   <header>
     <h2>Panel de Administración</h2>
   </header>
-
+  <br>
+  
   <div class="contenido">
   <main>
     <section class="login-container">
       <h2>Iniciar Sesión</h2>
-      <form action="indexAdmin.php" method="POST" class="login-form">
+      <form action="index.php" method="POST" class="login-form">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
 
