@@ -156,23 +156,35 @@ aside{
 /*------------------------------------------------------------------*/
 
 .footer {
-  font-size: 1.2em;
+  background: var(--panel);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.3);
+  padding: 18px;
   text-align: center;
-  background-color: #1f1f1f;
-  color: #ffffff;
-  padding: 15px 20px;
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.6);
+  color: var(--text);
   margin-top: 40px;
+  border-radius: 12px 12px 0 0;
 }
 
 .footer p {
   margin: 0;
-  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
-.footer p:hover {
-  color: #00ffcc;
-  transition: color 0.3s;
+/* Reafirmamos el layout general para que el footer quede abajo */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 

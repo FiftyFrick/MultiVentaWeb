@@ -28,8 +28,12 @@
   
 <!-- Imagen -->
 <div class="product-image">
-  <p class="label">Imagen del Producto</p>
 
+  <!-- FECHA ACTUAL -->
+  <p class="fecha" id="fecha-actual"></p>
+  <input type="hidden" id="fecha-input" name="fecha"> <!-- Se enviará a la BD -->
+
+  <p class="label">Imagen del Producto</p>
   <div class="thumb-preview">
     <img id="preview-img" src="img/img1.jpg" alt="Vista previa del producto">
   </div>
@@ -39,6 +43,7 @@
     <input id="file-input" type="file" class="input-file" accept="image/*">
   </label>
 </div>
+
 
 
   <!-- Datos -->
@@ -93,6 +98,20 @@
       previewImg.src = URL.createObjectURL(file);
     }
   });
+
+</script>
+
+<script>
+// Mostrar fecha actual en formato dd/mm/yyyy
+const fechaActual = new Date();
+const formato = fechaActual.toLocaleDateString("es-AR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric"
+});
+
+document.getElementById("fecha-actual").textContent = "Fecha: " + formato;
+document.getElementById("fecha-input").value = formato;
 </script>
 
 </body>

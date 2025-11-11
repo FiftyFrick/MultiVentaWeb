@@ -20,7 +20,7 @@
   <main>
     <section class="login-container">
       <h2>Iniciar Sesión</h2>
-      <form action="indexAdmin.php" method="POST" class="login-form">
+      <form action="bd/ingreso.php" method="POST" class="login-form">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
 

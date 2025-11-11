@@ -29,6 +29,7 @@
     </div>
 
         <!-- 🟩 Caja flotante de bienvenida -->
+    <!-- caja estatica  
     <div id="caja" class="caja">
       <div class="contenido">
         <span class="cerrar" onclick="toggleCaja()">&times;</span>
@@ -36,6 +37,10 @@
         Revisa nuestros Últimos Productos agregados!!!</p>
       </div>
     </div>
+-->
+    <?php include("cajaFlotante.php"); ?>
+
+    
   </header>
 
   <div class="cabeza">
@@ -44,7 +49,7 @@
         <h1 class="hero-title">Bienvenido a <span>MultiVenta</span></h1>
         <p class="hero-sub">Tu plataforma de Pre-ventas rápida y simple.</p>
         <div class="hero-actions">
-          <button class="btn primary">Ver catálogo</button>
+          <a href="productos.php"><button class="btn primary">Ver catálogo</button></a>
           <button class="btn outline">Contactar</button>
         </div>
       </div>
@@ -62,6 +67,7 @@
   <div class="contentMain">
 
     <main>
+      
       <?php include("in_ultimosIngresos.php"); ?>
 
       

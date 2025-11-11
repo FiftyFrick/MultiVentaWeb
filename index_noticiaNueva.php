@@ -10,6 +10,8 @@
 <body>
   <?php include("menuAdmin.php"); ?>
 
+  
+
 
   <header>
     <div class="cabecera">
@@ -51,7 +53,8 @@
 
     </div>
 
-    <button class="guardar-btn">Guardar cambios</button>
+    <button class="guardar-btn" name="guardar">Guardar cambios</button>
+    <button class="guardar-btn" style="background:#555;" name="default">Noticia Default</button>
 
   </form>
 
@@ -65,6 +68,56 @@
   <footer class="footer">
     <p>© 2025 Walter. Todos los derechos reservados.</p>
   </footer>
+
+  <?php require_once "bd/conexion.php";?>
+
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    // Si presionaron botón default
+    if(isset($_POST['default'])){
+        $default_titulo = "¡Bienvenido!";
+        $default_descripcion = "Revisa nuestros Últimos Productos agregados!!!";
+        $default_imagen = null;
+
+        $sql = "INSERT INTO ventana_emergente (titulo, descripcion, ruta_imagen) VALUES (?, ?, ?)";
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("sss", $default_titulo, $default_descripcion, $default_imagen);
+        $stmt->execute();
+
+        echo "<script>alert('Noticia restaurada a Default');</script>";
+    } 
+
+    // Si guardan una nueva
+    else {
+      $titulo = $_POST['titulo'];
+      $descripcion = $_POST['descripcion'];
+
+      // Manejo de imagen
+      if(!empty($_FILES['imagen']['name'])) {
+
+        $nombre_imagen = $_FILES['imagen']['name'];
+        $ruta_temporal = $_FILES['imagen']['tmp_name'];
+        $destino = "img/noticias/" . $nombre_imagen;
+
+        // Mover imagen
+        move_uploaded_file($ruta_temporal, $destino);
+
+      } else {
+        // Si no se subió imagen => Guardar NULL
+        $destino = NULL;
+      }
+
+      $sql = "INSERT INTO ventana_emergente (titulo, descripcion, ruta_imagen) VALUES (?, ?, ?)";
+      $stmt = $conexion->prepare($sql);
+      $stmt->bind_param("sss", $titulo, $descripcion, $destino);
+      $stmt->execute();
+
+
+        echo "<script>alert('Noticia guardada correctamente');</script>";
+    }
+}
+?>
 
 <script>
 document.getElementById("file-input").addEventListener("change", function(){

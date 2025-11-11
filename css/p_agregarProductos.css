@@ -163,3 +163,11 @@ main.content {
     flex-direction: column;
   }
 }
+
+
+.fecha {
+  color: var(--muted);
+  font-size: 20px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}

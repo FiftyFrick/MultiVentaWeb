@@ -70,6 +70,8 @@
 
         <!-- Resumen -->
             <div class="cart-right">
+                <input type="text" placeholder="Ingresa tu nombre aqui" required >
+
                 <h2>Resumen del pedido</h2>
                 <div class="summary-row">
                     <span>Subtotal</span>
