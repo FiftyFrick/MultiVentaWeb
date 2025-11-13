@@ -11,6 +11,11 @@ main.content {
   box-shadow: 0 8px 24px rgba(0,0,0,0.55);
 }
 
+.formproducto{
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
 .product-image {
   text-align: center;
 }
@@ -31,6 +36,9 @@ main.content {
   display: none;
 }
 
+
+
+
 /* Botón */
 .upload-btn {
   display: inline-block;
@@ -49,6 +57,10 @@ main.content {
   background: #00cfa5;
   transform: scale(1.04);
 }
+
+
+
+
 
 
 .label {
@@ -73,6 +85,9 @@ main.content {
   margin-top: 12px;
   color: var(--text);
 }
+
+
+
 
 
 /* Panel de datos */
@@ -106,12 +121,112 @@ main.content {
   padding: 10px 12px;
   color: var(--text);
   font-size: 15px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .field-group input:focus,
 .field-group textarea:focus {
   border-color: var(--accent);
 }
+
+/* Estilo general de los selects */
+.field-group select {
+  background: var(--panel);
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  background-image: linear-gradient(to bottom, var(--panel), var(--panel2));
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Efecto al pasar el mouse */
+.field-group select:hover {
+  border-color: var(--accent);
+  background: var(--panel2);
+}
+
+/* Efecto al enfocar */
+.field-group select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 4px var(--accent);
+}
+
+/* Opciones del select */
+.field-group select option {
+  background: var(--panel);
+  color: var(--text);
+}
+
+/* Inputs de nueva categoría / subcategoría */
+#nueva_categoria,
+#nueva_sub_categoria {
+  background: var(--panel);
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 15px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Foco en los inputs */
+#nueva_categoria:focus,
+#nueva_sub_categoria:focus {
+  border-color: var(--accent);
+  background: var(--panel2);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* Animación sutil al aparecer los nuevos campos */
+#nueva_categoria[style*="display: block"],
+#nueva_sub_categoria[style*="display: block"] {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Ícono de flecha personalizado (opcional) */
+.field-group select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 4px),
+                       calc(100% - 15px) calc(50% - 4px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* Hover y focus */
+.field-group select:hover {
+  border-color: var(--accent);
+}
+
+.field-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--panel2);
+}
+
+/* Opciones del desplegable */
+.field-group option {
+  background: var(--panel);
+  color: var(--text);
+}
+
 
 /* Botones */
 .actions {

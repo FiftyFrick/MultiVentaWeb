@@ -29,7 +29,7 @@
 
         <button type="submit">Ingresar</button>
 
-        <!--<p class="registro">Solicita Tu Registro <a href="#">Solicita Aqui</a></p> -->
+        <p class="recuperar">Recuperar Contraseña<a href="#"> Aqui </a></p> 
       </form>
     </section>
   </main>

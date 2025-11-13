@@ -68,17 +68,17 @@
   transform: translateY(-2px) scale(1.01);
 }
 
-/* En caso de agregar registro */
-.registro {
+/* Recuperar contraseña */
+.recuperar {
   margin-top: 14px;
   font-size: 14px;
   color: var(--muted);
 }
-.registro a {
+.recuperar a {
   color: var(--accent);
   text-decoration: none;
 }
-.registro a:hover {
+.recuperar a:hover {
   text-decoration: underline;
 }
 

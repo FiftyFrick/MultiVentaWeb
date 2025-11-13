@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <?php include("menuAdmin.php"); ?>
+  <?php include("menu.php"); ?>
 
   
 

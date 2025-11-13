@@ -8,12 +8,12 @@
 
 </head>
 <body>
-  <?php include("menuAdmin.php"); ?>
+  <?php include("menu.php"); ?>
 
   <header>
     <div class="cabecera">
       <div class="bienvenidos">
-      <h1>Catalogo</h1>
+      <h1>Modificar Productos</h1>
       </div>
       
       <div class="filter-bar">

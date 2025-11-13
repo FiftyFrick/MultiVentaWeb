@@ -1,0 +1,90 @@
+CREATE DATABASE multiventaservice ;
+
+
+CREATE TABLE usuariosadmin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    contraseña VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO usuariosadmin (nombre, email, telefono, contraseña)
+VALUES ('walter', 'walter@example.com', '123456789', MD5('1234'));
+
+
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE sub_categorias (
+    id_sub_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    id_categoria INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cod_interno VARCHAR(15),
+    nombre VARCHAR(50) NOT NULL,
+    descripcion TEXT,
+    id_categoria INT,
+    id_sub_categoria INT,
+    precio DECIMAL(10,2) NOT NULL,
+    ruta_imagen VARCHAR(255),
+    fecha DATE DEFAULT CURDATE(),
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (id_sub_categoria) REFERENCES sub_categorias(id_sub_categoria)
+        ON DELETE SET NULL ON UPDATE CASCADE,
+    INDEX idx_nombre (nombre),
+    INDEX idx_categoria_sub (id_categoria, id_sub_categoria)
+);
+
+
+
+
+INSERT INTO categorias (nombre) VALUES
+('Hardware'),
+('Ropa'),
+('Hogar');
+
+
+
+INSERT INTO sub_categorias (id_categoria, nombre) VALUES
+(1, 'GPU'),
+(1, 'CPU'),
+(1, 'Memoria'),
+(1, 'Gabinetes'),
+(2, 'Camisas'),
+(2, 'Pantalones'),
+(3, 'Cocina'),
+(3, 'Decoración');
+
+
+
+
+INSERT INTO productos (
+    cod_interno,
+    nombre,
+    descripcion,
+    id_categoria,
+    id_sub_categoria,
+    precio,
+    ruta_imagen
+) VALUES
+('HW001', 'Placa de video RTX 3060', 'GPU Nvidia 12GB GDDR6', 1, 1, 499.99, 'img/rtx3060.jpg'),
+('HW002', 'Procesador Ryzen 5 5600', 'CPU AMD 6 núcleos 12 hilos', 1, 2, 299.99, 'img/ryzen5.jpg'),
+('HW003', 'Memoria RAM 16GB DDR4', 'Corsair Vengeance 3200MHz', 1, 3, 89.99, 'img/ram16gb.jpg'),
+('RP001', 'Remera negra básica', 'Remera de algodón 100%', 2, 4, 19.99, 'img/remera_negra.jpg'),
+('HG001', 'Set de utensilios de cocina', 'Acero inoxidable, 5 piezas', 3, 5, 39.99, 'img/utensilios.jpg');
+
+
+

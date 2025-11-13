@@ -15,7 +15,7 @@
   
 
   
-      <?php include("menuAdmin.php"); ?>
+      <?php include("menu.php"); ?>
 
 
   <div class="cabeza">

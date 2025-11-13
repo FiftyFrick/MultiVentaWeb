@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='css/adminPerfil.css'> <!-- Nuevo CSS para este diseño -->
 </head>
 <body>
-  <?php include("menuAdmin.php"); ?>
+  <?php include("menu.php"); ?>
 
   <header>
     <h2>Panel de Perfil</h2>
@@ -37,7 +37,9 @@
       <div class="perfil-acciones">
         <button id="btnEditarPerfil">Editar Perfil</button>
         <button id="btnCambiarPass">Cambiar Contraseña</button>
+      <a href="bd/salir.php">
         <button class="logout">Cerrar Sesión</button>
+      </a>
       </div>
     </div>
 
