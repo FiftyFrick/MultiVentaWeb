@@ -24,30 +24,28 @@
         <div class="filter-group">
           <label for="categoria">Categoría:</label>
           <select id="categoria" name="categoria">
-  <option value="">Todas</option>
-  <?php
-  $sql = "SELECT id_categoria, nombre FROM categorias";
-  $result = $conexion->query($sql);
-  while ($row = $result->fetch_assoc()) {
-      echo "<option value='{$row['id_categoria']}'>{$row['nombre']}</option>";
-  }
-  ?>
-</select>
-
+            <option value="">Todas</option>
+            <?php
+            $sql = "SELECT id_categoria, nombre FROM categorias";
+            $result = $conexion->query($sql);
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='{$row['id_categoria']}'>{$row['nombre']}</option>";
+            }
+            ?>
+          </select>
         </div>
         <div class="filter-group">
           <label for="sub_categoria">Sub-Categoría:</label>
           <select id="sub_categoria" name="sub_categoria">
-  <option value="">Todas</option>
-  <?php
-  $sql = "SELECT id_sub_categoria, nombre FROM sub_categorias";
-  $result = $conexion->query($sql);
-  while ($row = $result->fetch_assoc()) {
-      echo "<option value='{$row['id_sub_categoria']}'>{$row['nombre']}</option>";
-  }
-  ?>
-</select>
-
+            <option value="">Todas</option>
+            <?php
+            $sql = "SELECT id_sub_categoria, nombre FROM sub_categorias";
+            $result = $conexion->query($sql);
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='{$row['id_sub_categoria']}'>{$row['nombre']}</option>";
+            }
+            ?>
+          </select>
         </div>
         <button type="submit" class="btn primary">Filtrar</button>
       </form>
@@ -81,11 +79,22 @@
               <div class='code'>COD. {$fila['cod_interno']}</div>
               <div class='name'>{$fila['nombre']}</div>
               <div class='desc'>{$fila['descripcion']}</div>
+              <div class='code'>Cod. Prov. {$fila['cod_provedor']}</div>
               <div class='price'>$" . number_format($fila['precio'], 0, ',', '.') . "</div>
-              <button class='btn small'>Agregar al carrito</button>
+              
+              <button 
+                class='btn small agregar' 
+                data-id='{$fila['id']}'
+                data-nombre='{$fila['nombre']}'
+                data-precio='{$fila['precio']}'
+                data-imagen='{$fila['ruta_imagen']}'>
+                Agregar al carrito
+              </button>
+              <a href='carrito.php'> <button class='btn small'> Ver Carrito </button> </a>           
             </div>
           </article>
           ";
+;
         }
       } else {
         echo "<p style='color:white;text-align:center;'>No se encontraron productos.</p>";
@@ -96,5 +105,9 @@
   <footer class="footer">
     <p>© 2025 Walter. Todos los derechos reservados.</p>
   </footer>
+
+    <!-- 🚀 Script de productos-->
+<script src="js/catalogoProductos.js" ></script>
+
 </body>
 </html>

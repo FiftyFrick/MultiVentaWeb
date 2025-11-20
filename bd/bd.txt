@@ -31,12 +31,13 @@ CREATE TABLE sub_categorias (
 
 
 CREATE TABLE productos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     cod_interno VARCHAR(15),
     nombre VARCHAR(50) NOT NULL,
     descripcion TEXT,
     id_categoria INT,
     id_sub_categoria INT,
+    cod_provedor VARCHAR(15),
     precio DECIMAL(10,2) NOT NULL,
     ruta_imagen VARCHAR(255),
     fecha DATE DEFAULT CURDATE(),

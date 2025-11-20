@@ -39,6 +39,7 @@
 
     document.querySelectorAll('.agregar').forEach(btn => {
       btn.addEventListener('click', e => {
+        
         const producto = e.target.closest('.producto');
         const id = producto.dataset.id;
         const nombre = producto.dataset.nombre;

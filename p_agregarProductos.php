@@ -38,7 +38,7 @@
     $resultSub = $conexion->query($sqlSub);
     ?>
 
-      <form class="formproducto" action="insertar_producto.php" method="POST" enctype="multipart/form-data">
+      <form class="formproducto" action="bd/insertar_producto.php" method="POST" enctype="multipart/form-data">
         <!-- Imagen -->
         <div class="product-image">
           <p class="fecha" id="fecha-actual"></p>
@@ -54,7 +54,7 @@
             <input id="file-input" type="file" name="imagen" class="input-file" accept="image/*">
           </label>
         </div>
- 
+
 
 
           <!-- Datos -->

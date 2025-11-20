@@ -7,114 +7,164 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="styleIndex.css">
     <link rel="stylesheet" href="css/styleCarrito.css">
-
 </head>
 <body>
   <?php include("menu.php"); ?>
-    <div class="contenido">       
-        <main class="content">
-<!--
 
-            <?php
-                session_start();
+  <div class="contenido">       
+    <main class="content">
+      <section class="cart-container">
+        <!-- 🛒 Carrito -->
+        <div class="cart-left">
+          <h2>Mi carrito</h2>
+          <div id="carritoItems"></div>
+          <br>
+          <button id="vaciarCarrito" class="btn danger">Vaciar carrito</button>
+          <a href="productos.php"><button class="btn danger">Seguir comprando</button></a>
 
-                // Inicializar carrito si no existe
-                if (!isset($_SESSION['carrito'])) {
-                    $_SESSION['carrito'] = array();
-                }
+        </div>
 
-                // Mostrar contenido del carrito
-                echo "<h1>Carrito de Compras</h1>";
+        <!-- 📦 Resumen -->
+        <div class="cart-right">
+          <div class="field-group">
+            <input type="text" id="nombreCliente" placeholder="Ingresa tu Nombre Aquí" required>
+          </div>
 
-                if (empty($_SESSION['carrito'])) {
-                    echo "<p>El carrito está vacío.</p>";
-                } else {
-                    echo "<ul>";
-                    foreach ($_SESSION['carrito'] as $producto) {
-                        echo "<li>{$producto['nombre']} - {$producto['precio']} USD</li>";
-                    }
-                    echo "</ul>";
-                    echo "<a href='checkout.php'>Finalizar Compra</a>";
-                }
-            ?>
--->
+          <h2>Resumen del pedido</h2>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="total">$0.00</span>
+          </div>
 
-        <!-- Contenido -->
+          <a id="btnWhatsapp" href="#" target="_blank" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Seguir Compra
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
 
-        <section class="cart-container">
-            <!-- Carrito -->
-            <div class="cart-left">
-                <h2>Mi carrito</h2>
-                <div class="cart-item">
-                    <img src="img/kitupgrade.jpeg" alt="Paquete del mes">
-                    <div class="item-info">
-                        <p>Paquete del mes Kit Upgrade Rayzen 7</p>
-                        <p class="price">$188,000.00</p>
-                    </div>
-                    <div class="item-actions">
-                        <button> - </button>
-                        <input type="text" value="1">
-                        <button> + </button>
-                    </div>
-                    <div class="item-total">$188,000.00</div>
-                    <button class="remove">x</button>
-                </div>
-                <br>
-                <!--
-                <div class="extras">
-                    <a href="#">➤ Ingresar código promocional</a>
-                    <a href="#">➤ Agregar una nota</a>
-                </div>
-                -->
-            </div>
+  <footer class="footer">
+    <p>© 2025 Walter. Todos los derechos reservados.</p>
+  </footer>
 
-        <!-- Resumen -->
-            <div class="cart-right">
-                <input type="text" placeholder="Ingresa tu nombre aqui" required >
+  <!-- 🚀 Script del carrito -->
+  <script>
+    const carritoItems = document.getElementById("carritoItems");
+    const subtotalSpan = document.getElementById("subtotal");
+    const totalSpan = document.getElementById("total");
+    const btnVaciar = document.getElementById("vaciarCarrito");
+    const btnWhatsapp = document.getElementById("btnWhatsapp");
+    const inputNombre = document.getElementById("nombreCliente");
 
-                <h2>Resumen del pedido</h2>
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span>$188,000.00</span>
-                </div>
-                
-                <div class="summary-row total">
-                    <span>Total</span>
-                    <span>$188,000.00</span>
-                </div>
-                <?php
-                $telefono = "5491122334455"; // ← poné tu número acá
-                $mensaje = "Hola! Quiero finalizar esta compra:%0A%0A";
+    const telefono = "5491122334455"; // ← poné tu número de WhatsApp
 
-                if (!empty($_SESSION['carrito'])) {
-                    foreach ($_SESSION['carrito'] as $item) {
-                        $nombre = urlencode($item['nombre']);
-                        $cantidad = urlencode($item['cantidad']);
-                        $precio = urlencode($item['precio']);
-                        $mensaje .= "- $nombre x$cantidad ($$precio c/u)%0A";
-                    }
-                }
+    // 🧩 Obtener y guardar carrito
+    function obtenerCarrito() {
+      return JSON.parse(localStorage.getItem("carrito")) || [];
+    }
 
-                $mensaje .= "%0ATotal: $" . urlencode($total); // Asegúrate de tener $total calculado
-                $linkWhatsapp = "https://wa.me/$telefono?text=$mensaje";
-                ?>
+    function guardarCarrito(carrito) {
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
 
-                <a href="<?php echo $linkWhatsapp; ?>" target="_blank" class="btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                Seguir Compra
-                </a>
+    // 🧾 Mostrar carrito
+    function renderizarCarrito() {
+      const carrito = obtenerCarrito();
+      carritoItems.innerHTML = "";
 
-                                
-            </div>
-        </section>
+      if (carrito.length === 0) {
+        carritoItems.innerHTML = "<p>El carrito está vacío.</p>";
+        subtotalSpan.textContent = "$0.00";
+        totalSpan.textContent = "$0.00";
+        btnWhatsapp.href = "#";
+        return;
+      }
 
+      let total = 0;
 
-        </main>
-    </div>
+      carrito.forEach((item, index) => {
+        const totalItem = item.precio * item.cantidad;
+        total += totalItem;
 
-<footer class="footer">
-<p>© 2025 Walter. Todos los derechos reservados.</p>
-</footer>
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+        <img src="${item.imagen}" class="item-img">
 
+        <div class="item-info">
+          <p><strong>${item.nombre}</strong></p>
+          <p class="price">$${item.precio.toLocaleString()}</p>
+        </div>
+
+        <div class="item-actions">
+          <button onclick="cambiarCantidad(${index}, -1)"> - </button>
+          <input type="text" value="${item.cantidad}" readonly>
+          <button onclick="cambiarCantidad(${index}, 1)"> + </button>
+        </div>
+
+        <div class="item-total">$${totalItem.toLocaleString()}</div>
+        <button class="remove" onclick="eliminarItem(${index})">x</button>
+      `;
+
+        carritoItems.appendChild(div);
+      });
+
+      subtotalSpan.textContent = `$${total.toLocaleString()}`;
+      totalSpan.textContent = `$${total.toLocaleString()}`;
+      actualizarWhatsapp(carrito, total);
+    }
+
+    // ➕➖ Cambiar cantidad
+    function cambiarCantidad(index, cambio) {
+      let carrito = obtenerCarrito();
+      carrito[index].cantidad += cambio;
+
+      if (carrito[index].cantidad <= 0) {
+        carrito.splice(index, 1);
+      }
+
+      guardarCarrito(carrito);
+      renderizarCarrito();
+    }
+
+    // ❌ Eliminar producto
+    function eliminarItem(index) {
+      let carrito = obtenerCarrito();
+      carrito.splice(index, 1);
+      guardarCarrito(carrito);
+      renderizarCarrito();
+    }
+
+    // 🧹 Vaciar todo el carrito
+    btnVaciar.addEventListener("click", () => {
+      localStorage.removeItem("carrito");
+      renderizarCarrito();
+    });
+
+    // 💬 Generar mensaje de WhatsApp
+    function actualizarWhatsapp(carrito, total) {
+      let mensaje = "Hola! Quiero finalizar esta compra:%0A%0A";
+      carrito.forEach(item => {
+        mensaje += `- ${item.nombre} x${item.cantidad} ($${item.precio} c/u)%0A`;
+      });
+      mensaje += `%0ATotal: $${total.toLocaleString()}%0A%0ANombre: ${encodeURIComponent(inputNombre.value || "")}`;
+      btnWhatsapp.href = `https://wa.me/${telefono}?text=${mensaje}`;
+    }
+
+    // 🔄 Actualizar enlace cuando escriben su nombre
+    inputNombre.addEventListener("input", () => {
+      const carrito = obtenerCarrito();
+      let total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+      actualizarWhatsapp(carrito, total);
+    });
+
+    // 🧠 Renderizar al cargar
+    renderizarCarrito();
+  </script>
 </body>
 </html>

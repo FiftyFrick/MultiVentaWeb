@@ -247,7 +247,8 @@ header {
 
 /* inputs y textarea */
 .modal-content.product-edit input[type="text"],
-.modal-content.product-edit textarea {
+.modal-content.product-edit textarea ,
+.modal-content.product-edit select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
@@ -257,6 +258,21 @@ header {
   font-size: 14px;
   box-sizing: border-box;
 }
+
+.modal-content.product-edit select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8L0.803848 0.5H11.1962L6 8Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.modal-content.product-edit select:hover {
+  border-color: rgba(255,255,255,0.15);
+}
+
 
 /* preview de imagen */
 .preview-box {
