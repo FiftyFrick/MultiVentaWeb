@@ -37,7 +37,7 @@
         <p class="hero-sub">Tu plataforma de Pre-ventas rápida y simple.</p>
         <div class="hero-actions">
           <a href="productos.php"><button class="btn primary">Ver catálogo</button></a>
-          <button class="btn outline">Contactar</button>
+<!--          <button class="btn outline">Contactar</button>-->
         </div>
       </div>
       <div class="hero-visual">

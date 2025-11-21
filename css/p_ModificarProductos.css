@@ -248,7 +248,8 @@ header {
 /* inputs y textarea */
 .modal-content.product-edit input[type="text"],
 .modal-content.product-edit textarea ,
-.modal-content.product-edit select {
+.modal-content.product-edit select ,
+.modal-content.product-edit input[type="date"]{
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
