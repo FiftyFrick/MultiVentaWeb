@@ -1,24 +1,34 @@
 <?php
-header("Content-Type: application/json; charset=utf-8");
-require_once "conexion.php";  // Ajusta la ruta si está en otra carpeta
+include("conexion.php");
 
-// Consulta
-$sql = "SELECT * FROM productos";
+$buscar        = $_GET['buscar'] ?? '';
+$categoria     = $_GET['categoria'] ?? '';
+$subcategoria  = $_GET['sub_categoria'] ?? '';
 
-$resultado = $conexion->query($sql);
+$sql = "SELECT * FROM productos WHERE 1=1";
 
-// Verificar error en la consulta
-if (!$resultado) {
-    echo json_encode(["error" => "Error en la consulta SQL: " . $conexion->error]);
-    exit;
+if ($buscar != '') {
+    $buscar = $conexion->real_escape_string($buscar);
+    $sql .= " AND nombre LIKE '%$buscar%'";
 }
 
-$productos = [];
-
-while ($fila = $resultado->fetch_assoc()) {
-    $productos[] = $fila;
+if ($categoria != '') {
+    $categoria = (int)$categoria;
+    $sql .= " AND id_categoria = $categoria";
 }
 
-// Respuesta en JSON
-echo json_encode($productos, JSON_UNESCAPED_UNICODE);
-?>
+if ($subcategoria != '') {
+    $subcategoria = (int)$subcategoria;
+    $sql .= " AND id_sub_categoria = $subcategoria";
+}
+
+$sql .= " ORDER BY id DESC";
+
+$res = $conexion->query($sql);
+$data = [];
+
+while ($row = $res->fetch_assoc()) {
+    $data[] = $row;
+}
+
+echo json_encode($data);

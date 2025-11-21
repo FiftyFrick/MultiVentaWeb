@@ -6,11 +6,25 @@
   </div>
 
   <nav class="nav">
+  <div class="dropdown">
     <a href="index.php" class="nav-link">Inicio</a>
-    <a href="productos.php" class="nav-link">Catálogo</a>
-    <a href="carrito.php" class="nav-link">Carrito</a>
-    <a href="quienesSomos.php" class="nav-link">Quienes Somos</a>
-  </nav>
+
+    <?php if(isset($_SESSION['admin'])): ?>
+      <!-- MENÚ DESPLEGABLE PARA ADMIN -->
+      <div class="dropdown-content">
+        <a href="productos.php" class="nav-link">Catálogo</a>
+        <a href="carrito.php" class="nav-link">Carrito</a>
+        <a href="quienesSomos.php" class="nav-link">Quienes Somos</a>
+      </div>
+    <?php else: ?>
+      <!-- MENÚ NORMAL PARA USUARIO -->
+      <a href="productos.php" class="nav-link">Catálogo</a>
+      <a href="carrito.php" class="nav-link">Carrito</a>
+      <a href="quienesSomos.php" class="nav-link">Quienes Somos</a>
+    <?php endif; ?>
+  </div>
+</nav>
+
 
   <br>
 

@@ -5,17 +5,40 @@ require "conexion.php";
 // VALIDAR CAMPOS REQUERIDOS
 // -------------------------------------------
 
-if (
-    !isset($_POST["id"]) ||
-    !isset($_POST["cod_interno"]) ||
-    !isset($_POST["nombre"]) ||
-    !isset($_POST["descripcion"]) ||
-    !isset($_POST["cod_provedor"]) ||
-    !isset($_POST["precio"])
-) {
-    echo "ERROR: Faltan datos obligatorios.";
+// -------------------------------------------
+// VALIDAR CAMPOS REQUERIDOS + MOSTRAR VALORES
+// -------------------------------------------
+$errores = [];
+
+/*
+$campos = [
+    "id",
+    "cod_interno",
+    "nombre",
+    "descripcion",
+    "cod_provedor",
+    "precio"
+];
+
+foreach ($campos as $c) {
+    if (!isset($_POST[$c])) {
+        $errores[] = "$c NO recibido";
+    } else {
+        $valor = $_POST[$c];
+        echo "POST[$c] = " . ($valor === "" ? "(vacío)" : $valor) . "\n";
+    }
+}
+
+echo "\n------------------------------------\n";
+*/
+if (!empty($errores)) {
+    echo "ERROR: Faltan datos obligatorios:\n";
+    foreach ($errores as $e) echo "- $e\n";
     exit;
 }
+
+// echo "OK: Todos los campos requeridos llegaron.\n\n";
+
 
 $id             = $_POST["id"];
 $codigo         = $_POST["cod_interno"];
@@ -26,7 +49,7 @@ $precio         = $_POST["precio"];
 $fecha          = $_POST["fecha"] ?? null;
 
 $id_categoria    = $_POST["id_categoria"]    ?? null;
-$id_subcategoria = $_POST["id_subcategoria"] ?? null;
+$id_subcategoria = $_POST["id_sub_categoria"] ?? null;
 
 $nueva_categoria     = trim($_POST["nueva_categoria"] ?? "");
 $nueva_subcategoria  = trim($_POST["nueva_subcategoria"] ?? "");
@@ -93,35 +116,52 @@ if (isset($_FILES["ruta_imagen"]) && $_FILES["ruta_imagen"]["error"] === 0) {
 
 if ($nombre_imagen_final) {
 
-    $sql = $conexion->prepare("
-        UPDATE productos
-        SET cod_interno=?, nombre=?, descripcion=?, cod_provedor=?, 
-            precio=?, fecha=?, id_categoria=?, id_sub_categoria=?, ruta_imagen=?
-        WHERE id=?
-    ");
+  $sql = $conexion->prepare("
+    UPDATE productos
+    SET cod_interno=?, nombre=?, descripcion=?, cod_provedor=?, 
+        precio=?, fecha=?, id_categoria=?, id_sub_categoria=?, ruta_imagen=?
+    WHERE id=?
+");
 
-    $sql->bind_param(
-        "ssssdsissi",
-        $codigo, $nombre, $descripcion, $cod_provedor,
-        $precio, $fecha, $id_categoria, $id_subcategoria, $nombre_imagen_final,
-        $id
-    );
+$sql->bind_param(
+    "ssssdsiisi",
+    $codigo,
+    $nombre,
+    $descripcion,
+    $cod_provedor,
+    $precio,
+    $fecha,
+    $id_categoria,
+    $id_subcategoria,
+    $nombre_imagen_final,
+    $id
+);
+
+
 
 } else {
 
     $sql = $conexion->prepare("
-        UPDATE productos
-        SET cod_interno=?, nombre=?, descripcion=?, cod_provedor=?, 
-            precio=?, fecha=?, id_categoria=?, id_sub_categoria=?
-        WHERE id=?
-    ");
+    UPDATE productos
+    SET cod_interno=?, nombre=?, descripcion=?, cod_provedor=?, 
+        precio=?, fecha=?, id_categoria=?, id_sub_categoria=?
+    WHERE id=?
+");
 
-    $sql->bind_param(
-        "ssssdsis",
-        $codigo, $nombre, $descripcion, $cod_provedor,
-        $precio, $fecha, $id_categoria, $id_subcategoria,
-        $id
-    );
+$sql->bind_param(
+    "ssssdsiii",
+    $codigo,
+    $nombre,
+    $descripcion,
+    $cod_provedor,
+    $precio,
+    $fecha,
+    $id_categoria,
+    $id_subcategoria,
+    $id
+);
+
+
 }
 
 $ok = $sql->execute();

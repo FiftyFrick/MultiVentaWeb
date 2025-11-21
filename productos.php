@@ -15,58 +15,81 @@
       <div class="bienvenidos">
         <h1>Catálogo</h1>
       </div>
+<form class="filter-bar" method="GET">
+  <div class="filter-group">
+    <label for="buscar">Buscar:</label>
+    <input type="text" id="buscar" name="buscar" placeholder="Nombre del producto"
+      value="<?= htmlspecialchars($_GET['buscar'] ?? '') ?>">
+  </div>
 
-      <form class="filter-bar" method="GET">
-        <div class="filter-group">
-          <label for="buscar">Buscar:</label>
-          <input type="text" id="buscar" name="buscar" placeholder="Nombre del producto" value="<?= $_GET['buscar'] ?? '' ?>">
-        </div>
-        <div class="filter-group">
-          <label for="categoria">Categoría:</label>
-          <select id="categoria" name="categoria">
-            <option value="">Todas</option>
-            <?php
-            $sql = "SELECT id_categoria, nombre FROM categorias";
-            $result = $conexion->query($sql);
-            while ($row = $result->fetch_assoc()) {
-                echo "<option value='{$row['id_categoria']}'>{$row['nombre']}</option>";
-            }
-            ?>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="sub_categoria">Sub-Categoría:</label>
-          <select id="sub_categoria" name="sub_categoria">
-            <option value="">Todas</option>
-            <?php
-            $sql = "SELECT id_sub_categoria, nombre FROM sub_categorias";
-            $result = $conexion->query($sql);
-            while ($row = $result->fetch_assoc()) {
-                echo "<option value='{$row['id_sub_categoria']}'>{$row['nombre']}</option>";
-            }
-            ?>
-          </select>
-        </div>
-        <button type="submit" class="btn primary">Filtrar</button>
-      </form>
-    </div>    
+  <div class="filter-group">
+    <label for="categoria">Categoría:</label>
+    <select id="categoria" name="categoria">
+      <option value="">Todas</option>
+      <?php
+      $sql = "SELECT id_categoria, nombre FROM categorias";
+      $result = $conexion->query($sql);
+      $categoria_sel = $_GET['categoria'] ?? '';
+
+      while ($row = $result->fetch_assoc()) {
+          $selected = ($categoria_sel == $row['id_categoria']) ? "selected" : "";
+          echo "<option value='{$row['id_categoria']}' $selected>{$row['nombre']}</option>";
+      }
+      ?>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="sub_categoria">Sub-Categoría:</label>
+    <select id="sub_categoria" name="sub_categoria">
+      <option value="">Todas</option>
+      <?php
+      $sql = "SELECT id_sub_categoria, nombre FROM sub_categorias";
+      $result = $conexion->query($sql);
+      $sub_sel = $_GET['sub_categoria'] ?? '';
+
+      while ($row = $result->fetch_assoc()) {
+          $selected = ($sub_sel == $row['id_sub_categoria']) ? "selected" : "";
+          echo "<option value='{$row['id_sub_categoria']}' $selected>{$row['nombre']}</option>";
+      }
+      ?>
+    </select>
+  </div>
+
+  <button type="submit" class="btn primary">Filtrar</button>
+</form>
+
   </header>
   <br>
 
   <div class="cards-grid catalog">
     <?php
+
       // Capturar filtros
-      $buscar = $_GET['buscar'] ?? '';
-      $categoria = $_GET['categoria'] ?? '';
-      $sub_categoria = $_GET['sub_categoria'] ?? '';
+$buscar = $_GET['buscar'] ?? '';
+$categoria = $_GET['categoria'] ?? '';
+$sub_categoria = $_GET['sub_categoria'] ?? '';
 
-      // Construir la consulta dinámica
-      $sql = "SELECT * FROM productos WHERE 1=1";
-      if ($buscar != '') $sql .= " AND nombre LIKE '%$buscar%'";
-      if ($categoria != '') $sql .= " AND categoria = '$categoria'";
-      if ($sub_categoria != '') $sql .= " AND sub_categoria = '$sub_categoria'";
+// Construir la consulta dinámica
+$sql = "SELECT * FROM productos WHERE 1=1";
 
-      $resultado = $conexion->query($sql);
+if ($buscar != '') {
+    $buscar = $conexion->real_escape_string($buscar);
+    $sql .= " AND nombre LIKE '%$buscar%'";
+}
+
+if ($categoria != '') {
+    $categoria = (int)$categoria;
+    $sql .= " AND id_categoria = $categoria";
+}
+
+if ($sub_categoria != '') {
+    $sub_categoria = (int)$sub_categoria;
+    $sql .= " AND id_sub_categoria = $sub_categoria";
+}
+
+$resultado = $conexion->query($sql);
+
 
       if ($resultado && $resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
