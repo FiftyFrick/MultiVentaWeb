@@ -33,7 +33,6 @@
     <a href="index_noticiaNueva.php" class="nav-link">Noticia Emergente</a>
     <a href="p_agregarProductos.php" class="nav-link">Agregar Productos</a>
     <a href="p_modificarProductos.php" class="nav-link">Modificar Productos</a>
-    <a href="http://localhost/phpmyadmin/" class="nav-link">PHP myadmin</a>
   </nav>
   <?php endif; ?>
 

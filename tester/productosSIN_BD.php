@@ -25,9 +25,8 @@
           <label for="categoria">Categoría:</label>
           <select id="categoria">
             <option value="">Todas</option>
-            <option value="electronica">Electrónica</option>
-            <option value="ropa">Ropa</option>
-            <option value="hogar">Hogar</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Accesorios">Accesorios</option>
           </select>
           </div>
           <div class="filter-group">
@@ -35,9 +34,9 @@
           <label for="Sub-categoria">Sub-Categoría:</label>
           <select id="Sub-categoria">
             <option value="">Todas</option>
-            <option value="electronica">Electrónica</option>
-            <option value="ropa">Ropa</option>
-            <option value="hogar">Hogar</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
         <button class="btn primary">Filtrar</button>
