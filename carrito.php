@@ -33,11 +33,11 @@
           <h2>Resumen del pedido</h2>
           <div class="summary-row">
             <span>Subtotal</span>
-            <span id="subtotal">$0.00</span>
+            <span id="subtotal">$0,00</span>
           </div>
           <div class="summary-row total">
             <span>Total</span>
-            <span id="total">$0.00</span>
+            <span id="total">$0,00</span>
           </div>
 
           <a id="btnWhatsapp" href="#" target="_blank" class="btn-whatsapp">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
   <link rel="stylesheet" href="styleIndex.css">
   <link rel='stylesheet' href='css/styleCarrusel.css'>
 
@@ -79,14 +79,28 @@
   
 
     <!-- SOLO UN POPUP -->
-  <div id="popup" class="popup">
-    <div class="popup-contenido">
-      <img id="popup-img" src="" alt="Imagen Pop-up">
-      <p id="popup-desc"></p>
-      <button class="btn-cerrar" onclick="cerrarPopup()">Cerrar</button>
-    </div>
-  </div>
+  
+    <!-- POPUP MEJORADO -->
+    <div id="popup" class="popup">
+      <div class="popup-contenido popup-anim">
+          
+          <img id="popup-img" src="" alt="Imagen del producto">
 
+          <h2 id="popup-nombre"></h2>
+
+          <p id="popup-desc" class="popup-descripcion"></p>
+
+          <p id="popup-precio" class="popup-precio"></p>
+
+          <div class="popup-botones">
+            <button id="popup-add" class="btn-agregar-popup">Agregar al carrito</button>
+            <button class="btn-cerrar" onclick="cerrarPopupCarrusel()">Cerrar</button>
+          </div>
+
+      </div>
+    </div>
+
+    
 </body>
 </html>
 
@@ -96,15 +110,6 @@
 
 
 
-
-<script>
-  
-function toggleCaja() {
-  const caja = document.getElementById('caja');
-  caja.style.display = (caja.style.display === 'none') ? 'block' : 'none';
-}
-
-</script>
-
+<script src="js/modalindex.js" ></script>
 </body>
 </html>

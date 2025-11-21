@@ -3,7 +3,7 @@
 <head>
 
   <meta charset='UTF-8'>
-  <title>MultiVenta</title>
+  <title>Quienes Somos</title>
   <link rel='stylesheet' href='styleIndex.css'>
   <link rel='stylesheet' href='css/quienesSomos.css'>
 

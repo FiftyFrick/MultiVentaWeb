@@ -99,18 +99,29 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text)}
 
 
 
-
 .caja {
   position: fixed;
-  top: 100px;                 /* debajo del header */
-  right: 40px;                /* separada del borde derecho */
+  top: 100px; /* debajo del header */
+  right: 40px;
   width: 320px;
   background: var(--panel);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-  z-index: 50;
-  animation: aparecer 0.4s ease-out;
+  
+  /* 🔥 Lo importante */
+  z-index: 120000; /* por encima del popup */
+  
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.caja.activo {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .caja .contenido {
@@ -129,17 +140,10 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text)}
   color: var(--muted);
   transition: color 0.2s;
 }
+
 .caja .cerrar:hover {
   color: var(--accent);
 }
-
-/* Animación suave */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
 
 
 .contentMain{
