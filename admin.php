@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
   <main>
     <section class="login-container">
       <h2>Iniciar Sesión</h2>
-      <form action="bd/ingreso.php" method="POST" class="login-form">
+      <form action="bd/login.php" method="POST" class="login-form">
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
 

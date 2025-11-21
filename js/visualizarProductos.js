@@ -51,7 +51,12 @@ function cargarProductos() {
 }
 
 
+// Ejecutar al cargar la página
+window.addEventListener("DOMContentLoaded", cargarProductos);
+
+
+// Filtrar sin recargar
 document.querySelector(".filter-bar").addEventListener("submit", e => {
-  e.preventDefault(); // evita recarga
-  cargarProductos();  // recarga productos con filtros
+  e.preventDefault();
+  cargarProductos();
 });

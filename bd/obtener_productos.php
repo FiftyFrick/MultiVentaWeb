@@ -22,7 +22,7 @@ if ($subcategoria != '') {
     $sql .= " AND id_sub_categoria = $subcategoria";
 }
 
-$sql .= " ORDER BY id DESC";
+$sql .= " ORDER BY id ASC";
 
 $res = $conexion->query($sql);
 $data = [];
