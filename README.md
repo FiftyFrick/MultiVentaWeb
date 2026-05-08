@@ -10,11 +10,11 @@ A continuacion se Muestra los diferentes pestañas de la Pagina Web
 
 ![muestra](imgMuestras/01.jpg)
 
-![muestra](imgMuestras/02.jpg)
-
 ![muestra](imgMuestras/021.jpg)
 
 ![muestra](imgMuestras/022.jpg)
+
+![muestra](imgMuestras/02.jpg)
 
 ![muestra](imgMuestras/03.jpg)
 
