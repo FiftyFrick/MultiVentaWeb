@@ -8,4 +8,4 @@
 
 A continuacion se Muestra los diferentes pestañas de la Pagina Web
 
-! (imgMuestras/01.jpg)
+! [](imgMuestras/01.jpg)
